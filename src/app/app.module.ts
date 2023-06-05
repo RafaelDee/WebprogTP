@@ -3,17 +3,26 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './Home/home.component';
+import { GameDescriptionComponent } from './GameDescription/game-description.component';
+import { ProfileComponent } from './Profile/profile.component';
+import { AboutComponent } from './About/about.component';
+import { AccountManagerComponent } from './AccountManager/account-manager.component';
+import { GameCodesComponent } from './GameCodes/game-codes.component';
+import { CommunityComponent } from './community/community.component';
 
 @NgModule({
   declarations: [
-    AppComponent
-  , HomeComponent],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+    AppComponent,
+    HomeComponent,
+    GameDescriptionComponent,
+    ProfileComponent,
+    AboutComponent,
+    AccountManagerComponent,
+    GameCodesComponent,
+  CommunityComponent,],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
