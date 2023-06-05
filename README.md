@@ -30,10 +30,7 @@ press Ctrl + Shift + X
 install the following extensions in vscode
 
 **required**
-1. Nx Console - 
-https://marketplace.visualstudio.com/items?itemName=nrwl.angular-console
-
-2. Angular Language Service - 
+1. Angular Language Service - 
 https://marketplace.visualstudio.com/items?itemName=Angular.ng-template
 
 *optional*
@@ -42,16 +39,9 @@ https://marketplace.visualstudio.com/items?itemName=Angular.ng-template
 3. Prettier - Code formatted
 4. EditorConfig for VS Code
 
-### to host the project locally
-1. click the NxConsole ("n>" icon) on the left sidebar
-2. click serve
-alternativley can click serve on the bottom part (not the target icon), then click WebprogTP then ```"Execute nx:run WebprogTP.serve"```
-3. wait to complete
-4. when the terminal says *Angular Live Development Server is listening on localhost:4200, open your browser on http://localhost:4200/* ctrl + click the link to open in browser
+## Host the project locally
 
-## Development server
-
-Run `nx console`. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `ng serve`. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
