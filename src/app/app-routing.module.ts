@@ -5,6 +5,7 @@ import { GameDescriptionComponent } from './GameDescription/game-description.com
 import { GameCodesComponent } from './GameCodes/game-codes.component';
 import { AccountManagerComponent } from './AccountManager/account-manager.component';
 import { CommunityComponent } from './community/community.component';
+import { AboutComponent } from './About/about.component';
 
 const routes: Routes = [
   {path:"",pathMatch:"full",component:HomeComponent},
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path:"setup",component:AccountManagerComponent},
   {path:"account",component:AccountManagerComponent},
   {path:"community",component:CommunityComponent},
+  {path:"about",component:AboutComponent},
 ];
 
 @NgModule({
