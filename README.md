@@ -15,15 +15,15 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 1. open vscode
 2. click clone git repository
 alternativley you can click the fork icon “⑂” on the left sidebar
-3. select where the project will be put
-4. paste the url project(this project link) in the feild provided
+3. paste the url project(this project link) in the feild provided
+4. select where the project will be put
 5. wait to finish
 6. if promted to download extensions, press yes
 
 ### install prerequisites
 npm:
 *type in terminal of vscode*
-npm ```install -g @angular/cli```
+```npm install -g @angular/cli```
 
 ### setup vscode environment
 press Ctrl + Shift + X
