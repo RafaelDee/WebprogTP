@@ -23,20 +23,24 @@ alternativley you can click the fork icon “⑂” on the left sidebar
 ### install prerequisites
 npm:
 *type in terminal of vscode*
-npm install -g @angular/cli
+npm ```install -g @angular/cli```
 
 ### setup vscode environment
 press Ctrl + Shift + X
 install the following extensions in vscode
+
 **required**
-Nx Console - https://marketplace.visualstudio.com/items?itemName=nrwl.angular-console
-Angular Language Service - https://marketplace.visualstudio.com/items?itemName=Angular.ng-template
+1. Nx Console - 
+https://marketplace.visualstudio.com/items?itemName=nrwl.angular-console
+
+2. Angular Language Service - 
+https://marketplace.visualstudio.com/items?itemName=Angular.ng-template
 
 *optional*
-JavaScript and TypeScript Nightly
-Material Icon Theme
-Prettier - Code formatted
-EditorConfig for VS Code
+1. JavaScript and TypeScript Nightly
+2. Material Icon Theme
+3. Prettier - Code formatted
+4. EditorConfig for VS Code
 
 ### to host the project locally
 1. click the NxConsole ("n>" icon) on the left sidebar
