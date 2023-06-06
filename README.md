@@ -77,7 +77,7 @@ https://marketplace.visualstudio.com/items?itemName=Angular.ng-template
 
 ## Host the project locally
 
-Run `ng serve`. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `ng serve` in the terminal. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
