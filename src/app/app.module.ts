@@ -10,6 +10,8 @@ import { AboutComponent } from './About/about.component';
 import { AccountManagerComponent } from './AccountManager/account-manager.component';
 import { GameCodesComponent } from './GameCodes/game-codes.component';
 import { CommunityComponent } from './community/community.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+//import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,7 @@ import { CommunityComponent } from './community/community.component';
     AccountManagerComponent,
     GameCodesComponent,
   CommunityComponent,],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, NgbModule],
   providers: [],
   bootstrap: [AppComponent],
 })
