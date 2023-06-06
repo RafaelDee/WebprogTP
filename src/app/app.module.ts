@@ -11,6 +11,7 @@ import { AccountManagerComponent } from './AccountManager/account-manager.compon
 import { GameCodesComponent } from './GameCodes/game-codes.component';
 import { CommunityComponent } from './community/community.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+//import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
