@@ -2,6 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.3.
 
+## Choose between 2 methods Quick & Full Setup
 ## Quick Setup
 
 ### before proceeding, you must have the following:
