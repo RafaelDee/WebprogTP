@@ -2,8 +2,14 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.3.
 
+## Quick Setup
+### before proceeding, you must have the following:
+1. vscode - https://code.visualstudio.com/
 
-## SETUP
+### to download the project
+
+## Full Setup
+
 
 ### before proceeding,you must have the following:
 1. nodejs - https://nodejs.org/en
