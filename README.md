@@ -4,6 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Choose between 2 methods Quick & Full Setup
 ## Quick Setup
+**Note**: you cannot collaborate with the team with this setup
 
 ### before proceeding, you must have the following:
 1. vscode - https://code.visualstudio.com/
@@ -39,7 +40,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 </html>
 ```
 3. done
-4. **Note**: you cannot collaborate with the team with this setup
 
 ## Full Setup
 
