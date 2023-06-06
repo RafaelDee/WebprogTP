@@ -3,6 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.3.
 
 ## Quick Setup
+
 ### before proceeding, you must have the following:
 1. vscode - https://code.visualstudio.com/
 
@@ -37,16 +38,14 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 </html>
 ```
 3. done
-**Note**: you cannot collaborate with the team with this setup
+4. **Note**: you cannot collaborate with the team with this setup
 
 ## Full Setup
-
 
 ### before proceeding,you must have the following:
 1. nodejs - https://nodejs.org/en
 2. vscode - https://code.visualstudio.com/
 3. git - https://git-scm.com/
-
 
 ### to download the project
 1. open vscode
