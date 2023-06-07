@@ -1,0 +1,14 @@
+.carousel-caption{
+  right:5%;
+  left:5%;
+  top: 0%;
+  bottom: 0%;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-shadow: 1px 1px 3px black;
+}
+.carousel-control{
+  width: 7%;
+}
