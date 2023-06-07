@@ -11,6 +11,7 @@ import { AccountManagerComponent } from './AccountManager/account-manager.compon
 import { GameCodesComponent } from './GameCodes/game-codes.component';
 import { CommunityComponent } from './community/community.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 //import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -22,7 +23,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AboutComponent,
     AccountManagerComponent,
     GameCodesComponent,
-  CommunityComponent,],
+  CommunityComponent,NavBarComponent],
   imports: [BrowserModule, AppRoutingModule, NgbModule],
   providers: [],
   bootstrap: [AppComponent],

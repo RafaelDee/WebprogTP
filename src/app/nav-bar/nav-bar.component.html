@@ -1,0 +1,45 @@
+
+<nav class="navbar navbar-expand-lg sticky-top border-bottom border-bottom-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Rafael Dee</a>
+    <button (click)="open(content)" class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasResponsive" aria-controls="offcanvasResponsive">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+<div class="offcanvas-lg" tabindex="-1" id="offcanvasResponsive" aria-labelledby="offcanvasResponsiveLabel">
+  <ng-template [ngTemplateOutlet]="content"></ng-template>
+
+</div>
+  </div>
+</nav>
+<ng-template #content let-offcanvas>
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasResponsiveLabel">{{currentRoute}}</h5>
+    <button type="button" class="btn-close" (click)="offcanvas?.close()" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <ul class="navbar-nav mb-2 mb-lg-0">
+      <li class="nav-item" *ngFor="let nav of navItems" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasResponsive">
+        <a *ngIf="!nav.children" class="nav-link" (click)="offcanvas?.close()" aria-current="page" role="button" routerLinkActive="active" [routerLinkActiveOptions]="nav.routeparams??''" [routerLink]="nav.route"><span>
+          <i class="fa-solid" [class]="nav.icon"></i> {{nav.name}}
+        </span></a>
+        <ng-template *ngIf="nav.children" [ngTemplateOutlet]="navItemStack" [ngTemplateOutletContext]="{nav:nav}"></ng-template>
+      </li>
+    </ul>
+  </div>
+
+<ng-template #navItemStack let-nav="nav" let-drop="drop" let-child="child">
+  <span [ngClass]="drop??'dropdown'" DropdownHover>
+  <a class=" dropdown-toggle" [ngClass]="!(child)?'nav-link':'dropdown-item'" role="button" aria-current="page" [routerLink]="nav.route"><span>
+    <i class="fa-solid" [class]="nav.icon"></i> {{nav.name}}
+  </span></a>
+<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+  <li *ngFor="let nav of nav.children">
+    <a *ngIf="!nav.children" class="dropdown-item" (click)="offcanvas?.close()" aria-current="page" [routerLink]="nav.route"><span>
+      <i class="fa-solid" [class]="nav.icon"></i>{{nav.name}}
+    </span></a>
+    <ng-template *ngIf="nav.children" [ngTemplateOutlet]="navItemStack" [ngTemplateOutletContext]="{nav:nav,drop:'dropstart',child:true}"></ng-template>
+  </li>
+</ul>
+</span>
+</ng-template>
+</ng-template>
