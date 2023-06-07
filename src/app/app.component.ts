@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { NgbActiveOffcanvas, NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
+import { webname } from 'src/main';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +8,8 @@ import { NgbActiveOffcanvas, NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'WebprogTP';
-
+[x: string]: any;
+  title = webname;
   constructor(private offcanvasService: NgbOffcanvas) {}
 
 	open() {
