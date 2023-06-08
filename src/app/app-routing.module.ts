@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './Home/home.component';
-import { GameDescriptionComponent } from './GameDescription/game-description.component';
-import { GameCodesComponent } from './GameCodes/game-codes.component';
-import { AccountManagerComponent } from './AccountManager/account-manager.component';
+import { HomeComponent } from './home/home.component';
+import { GameDescriptionComponent } from './gameDescription/game-description.component';
+import { GameCodesComponent } from './gameCodes/game-codes.component';
+import { AccountManagerComponent } from './accountManager/account-manager.component';
+import { AboutComponent } from './about/about.component';
+import { ProfileComponent } from './profile/profile.component';
 import { CommunityComponent } from './community/community.component';
-import { AboutComponent } from './About/about.component';
-import { ProfileComponent } from './Profile/profile.component';
 
 const routes: Routes = [
   {path:"",pathMatch:"full",component:HomeComponent},

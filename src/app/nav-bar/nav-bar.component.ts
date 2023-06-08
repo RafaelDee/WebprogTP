@@ -2,12 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
 import { filter } from 'rxjs';
+import { webname } from 'src/main';
 @Component({
   selector: 'nav-bar',
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.scss'],
 })
 export class NavBarComponent implements OnInit {
+  headerTitle = webname
   navItems: NavItem[] = [
     { name: 'Home', route: '',routeparams:{exact:true}, icon: "fa-house" },
     { name: 'Game Codes', route: 'gamecodes', icon: "fa-qrcode" },
