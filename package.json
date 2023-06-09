@@ -33,8 +33,6 @@
     "@angular/cli": "~16.0.3",
     "@angular/compiler-cli": "^16.0.0",
     "@angular/localize": "^16.0.0",
-    "@nx/angular": "16.3.2",
-    "@nx/workspace": "16.3.2",
     "@schematics/angular": "~16.0.3",
     "@types/jasmine": "~4.3.0",
     "jasmine-core": "~4.6.0",
@@ -43,7 +41,6 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
-    "nx": "16.3.2",
     "typescript": "~5.0.2"
   }
 }

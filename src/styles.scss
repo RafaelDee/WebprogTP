@@ -1,7 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* Importing Bootstrap SCSS file. */
-@import 'bootstrap/scss/bootstrap';
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
+
 .html,body,app-root{
   min-height: 100vh;
+}
+.card{
+  color: var(--bs-emphasis-color)!important;
+}
+
+:root{
+  --bs-card-title-color: var(--bs-emphasis-color)!important;
+  --bs-heading-color: var(--bs-emphasis-color)!important;
+}
+.max-lines-3{
+  overflow: hidden;
+   display: -webkit-box;
+   -webkit-line-clamp: 3; /* number of lines to show */
+           line-clamp: 3;
+   -webkit-box-orient: vertical;
 }
