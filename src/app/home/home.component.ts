@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { GameItem } from '../game-item/game-item.component';
 
 @Component({
   selector: 'app-home',
@@ -9,30 +10,13 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class HomeComponent {
   constructor(private modalService: NgbModal) {}
 
-	open() {
-		const modalRef = this.modalService.open(NgbdModalContent);
-		modalRef.componentInstance.name = 'World';
-	}
+  items:GameItem[] = [
+    {cover:'https://cdn.mos.cms.futurecdn.net/JarKa4TVZxSCuN8x8WNPSN.jpg',title:'Genshin Impact',description:"asd"},
+    {cover:'https://cdn.mos.cms.futurecdn.net/JarKa4TVZxSCuN8x8WNPSN.jpg',title:'Genshin Impact',description:loremIpsum},
+    {cover:'https://cdn.mos.cms.futurecdn.net/JarKa4TVZxSCuN8x8WNPSN.jpg',title:'Genshin Impact',description:loremIpsum},
+    {cover:'https://cdn.mos.cms.futurecdn.net/JarKa4TVZxSCuN8x8WNPSN.jpg',title:'Genshin Impact',description:loremIpsum},
+    {cover:'https://cdn.mos.cms.futurecdn.net/JarKa4TVZxSCuN8x8WNPSN.jpg',title:'Genshin Impact',description:loremIpsum},
+    {cover:'https://cdn.mos.cms.futurecdn.net/JarKa4TVZxSCuN8x8WNPSN.jpg',title:'Genshin Impact',description:loremIpsum},
+  ];
 }
-
-@Component({
-	selector: 'ngbd-modal-content',
-	standalone: true,
-	template: `
-		<div class="modal-header">
-			<h4 class="modal-title">Hi there!</h4>
-			<button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
-		</div>
-		<div class="modal-body">
-			<p>Hello, {{ name }}!</p>
-		</div>
-		<div class="modal-footer">
-			<button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
-		</div>
-	`,
-})
-export class NgbdModalContent {
-	@Input() name: any;
-
-	constructor(public activeModal: NgbActiveModal) {}
-}
+export const loremIpsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."

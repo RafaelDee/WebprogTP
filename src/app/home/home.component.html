@@ -1,13 +1,18 @@
+<<<<<<< Updated upstream
+<button class="btn btn-lg btn-outline-primary" (click)="open()">Launch demo modal</button>
+=======
 <div class="container pt-5">
-  <div class="card" style="--bs-card-border-radius: 20px;">
+  <div class="mb-4" style="--bs-card-border-radius: 20px;">
     <!-- data-bs-ride="carousel" -->
-    <div id="gamesCarousel" class="carousel slide" style="display: flex;">
-      <div class="col-12 col-md-8" style="position: relative;">
-        <div class="carousel-inner" style="border-top-left-radius:20px;border-bottom-left-radius: 20px;">
+    <div id="gamesCarousel" class="carousel slide row" style="display: flex;" data-bs-ride="carousel">
+      <div class="col-12 col-xl-9" style="position: relative;">
+        <div class="carousel-inner" style="border-radius:20px;">
           <div class="carousel-item active">
             <img src="https://cdn.mos.cms.futurecdn.net/JarKa4TVZxSCuN8x8WNPSN.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block text-white">
-              <img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/5d/Genshin_Impact_logo.svg/2560px-Genshin_Impact_logo.svg.png" style="width:30%; filter: invert(1) drop-shadow(0px 0px 4px black);;">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/en/thumb/5/5d/Genshin_Impact_logo.svg/2560px-Genshin_Impact_logo.svg.png"
+                style="width:30%; filter: invert(1) drop-shadow(0px 0px 4px black);;">
               <h5></h5>
               <p>Some representative placeholder content for the third slide.</p>
               <button type="button" class="btn btn-secondary btn-lg">Play Now</button>
@@ -24,33 +29,53 @@
 
           </div>
         </div>
-        <button class="carousel-control carousel-control-prev" type="button" data-bs-target="#gamesCarousel"
-          data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control carousel-control-next" type="button" data-bs-target="#gamesCarousel"
-          data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
       </div>
 
-      <div class="carousel-indicators w-100 p-3">
-        <button class="active" style="height: 100px;flex-direction: row;align-items: center;" data-bs-target="#gamesCarousel" data-bs-slide-to="0" aria-current="true" aria-label="Slide 1">
-          <img class="h-100 me-3" style="aspect-ratio: 3 / 4;object-fit: cover;" src="https://cdn.mobygames.com/covers/9213927-genshin-impact-playstation-4-front-cover.jpg">
-            <h5 class="text-end m-0 text-color-primary heading">Genshin Impact</h5>
+      <div class="carousel-indicators row pe-3 py-3 col-12 col-xl-3">
+        <button class="active col-12 col-md-6 col-xl-12" style="height: 100px;flex-direction: row;align-items: center;"
+          data-bs-target="#gamesCarousel" data-bs-slide-to="0" aria-current="true" aria-label="Slide 1">
+          <img class="h-100 me-3" style="aspect-ratio: 3 / 4;object-fit: cover;"
+            src="https://cdn.mobygames.com/covers/9213927-genshin-impact-playstation-4-front-cover.jpg">
+          <h6 class="text-end m-0 text-color-primary heading">Genshin Impact</h6>
         </button>
-        <button style="height: 100px;flex-direction: row;align-items: center;" data-bs-target="#gamesCarousel" data-bs-slide-to="1" aria-current="false" aria-label="Slide 2">
-          <img class="h-100 me-3" style="aspect-ratio: 3 / 4;object-fit: cover;" src="https://cdn.mobygames.com/covers/9213927-genshin-impact-playstation-4-front-cover.jpg">
-            <h5 class="text-end m-0 text-color-primary heading">Genshin Impact</h5>
+        <button class="col-12 col-md-6 col-xl-12" style="height: 100px;flex-direction: row;align-items: center;"
+          data-bs-target="#gamesCarousel" data-bs-slide-to="1" aria-current="false" aria-label="Slide 2">
+          <img class="h-100 me-3" style="aspect-ratio: 3 / 4;object-fit: cover;"
+            src="https://cdn.mobygames.com/covers/9213927-genshin-impact-playstation-4-front-cover.jpg">
+          <h6 class="text-end m-0 text-color-primary heading">Genshin Impact</h6>
         </button>
-        <button style="height: 100px;flex-direction: row;align-items: center;" data-bs-target="#gamesCarousel" data-bs-slide-to="2" aria-current="false" aria-label="Slide 3">
-          <img class="h-100 me-3" style="aspect-ratio: 3 / 4;object-fit: cover;" src="https://cdn.mobygames.com/covers/9213927-genshin-impact-playstation-4-front-cover.jpg">
-            <h5 class="text-end m-0 text-color-primary heading">Genshin Impact</h5>
+        <button class="col-12 col-md-6  col-xl-12" style="height: 100px;flex-direction: row;align-items: center;"
+          data-bs-target="#gamesCarousel" data-bs-slide-to="2" aria-current="false" aria-label="Slide 3">
+          <img class="h-100 me-3" style="aspect-ratio: 3 / 4;object-fit: cover;"
+            src="https://cdn.mobygames.com/covers/9213927-genshin-impact-playstation-4-front-cover.jpg">
+          <h6 class="text-end m-0 text-color-primary heading">Genshin Impact</h6>
         </button>
       </div>
     </div>
+  </div>
 
+  <h2>Free Games Today</h2>
+  <hr>
+  <div class="platform-list mb-4">
+    <h4>PC</h4>
+    <div class="row g-2 ">
+      <app-game-item *ngFor="let item of items" [item]="item"
+        class=" col-12 col-md-6 col-lg-4 col-xl-3 mb-1"></app-game-item>
+    </div>
+  </div>
+  <div class="platform-list mb-4">
+    <h4>Android</h4>
+    <div class="row g-2 ">
+      <app-game-item *ngFor="let item of items" [item]="item"
+        class=" col-12 col-md-6 col-lg-4 col-xl-3 mb-1"></app-game-item>
+    </div>
+  </div>
+  <div class="platform-list mb-4">
+    <h4>Console</h4>
+    <div class="row g-2 ">
+      <app-game-item *ngFor="let item of items" [item]="item"
+        class=" col-12 col-md-6 col-lg-4 col-xl-3 mb-1"></app-game-item>
+    </div>
   </div>
 </div>
+>>>>>>> Stashed changes
