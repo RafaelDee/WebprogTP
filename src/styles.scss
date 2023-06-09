@@ -6,8 +6,20 @@
 .html,body,app-root{
   min-height: 100vh;
 }
-.heading{
-  --bs-heading-color: var(--bs-emphasis-color);
+.card{
+  color: var(--bs-emphasis-color)!important;
+}
+
+:root{
+  --bs-card-title-color: var(--bs-emphasis-color)!important;
+  --bs-heading-color: var(--bs-emphasis-color)!important;
+}
+.max-lines-3{
+  overflow: hidden;
+   display: -webkit-box;
+   -webkit-line-clamp: 3; /* number of lines to show */
+           line-clamp: 3;
+   -webkit-box-orient: vertical;
 }
 
 /* Importing Bootstrap SCSS file. */
