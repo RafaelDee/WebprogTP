@@ -3,8 +3,7 @@
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
-
-export const webname = "WebprogTP"
+export const appname = "WebprogTP"
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
-document.title = webname
+document.title = appname

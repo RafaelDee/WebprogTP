@@ -1,0 +1,34 @@
+.offcanvas-body {
+  display: flex;
+  flex-direction: column;
+  .navbar-right {
+    align-content: start;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+  .profile-name{
+    display: block;
+  }
+  // Large devices (desktops, 992px and up)
+  @media (min-width: 992px) {
+    flex-direction: row;
+    .navbar-right {
+      align-content: end;
+      margin-left: auto;
+      .dropdown{
+        margin-left: 1rem;
+      }
+    }
+    .profile-name{
+      display: none;
+    }
+  }
+  @media (max-width: 992px) {
+    .dropdown-menu {
+      position: absolute;
+      inset: auto auto 0px 0px;
+      margin: 0px;
+      transform: translate(0px, -34px);
+    }
+  }
+}

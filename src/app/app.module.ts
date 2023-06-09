@@ -13,7 +13,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { CommunityComponent } from './community/community.component';
 import { GameItemComponent } from './game-item/game-item.component';
-//import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
