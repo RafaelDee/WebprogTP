@@ -3,7 +3,6 @@
 /* Importing Bootstrap SCSS file. */
 @import "~@fortawesome/fontawesome-free/css/all.css";
 
-
 .html,body,app-root{
   min-height: 100vh;
 }
@@ -22,3 +21,6 @@
            line-clamp: 3;
    -webkit-box-orient: vertical;
 }
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';

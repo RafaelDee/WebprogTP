@@ -1,23 +1,24 @@
-
-<nav class="navbar navbar-expand-lg sticky-top border-bottom border-bottom-dark">
+<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">{{headerTitle}}</a>
-    <button (click)="open(content)" class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasResponsive" aria-controls="offcanvasResponsive">
+    <a class="navbar-brand" href="#">
+      <img src="favicon.ico" width="30" height="30">
+      {{appname}}
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-<div class="offcanvas-lg" tabindex="-1" id="offcanvasResponsive" aria-labelledby="offcanvasResponsiveLabel">
-  <ng-template [ngTemplateOutlet]="content"></ng-template>
-
-</div>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <ng-template [ngTemplateOutlet]="content"></ng-template>
+    </div>
   </div>
 </nav>
 <ng-template #content let-offcanvas>
   <div class="offcanvas-header">
     <h5 class="offcanvas-title" id="offcanvasResponsiveLabel">{{currentRoute}}</h5>
-    <button type="button" class="btn-close" (click)="offcanvas?.close()" aria-label="Close"></button>
+    <button type="button" class="btn-close pt-4 pe-5" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
-    <ul class="navbar-nav mb-2 mb-lg-0">
+    <ul class=" navbar-nav mb-auto mb-lg-0">
       <li class="nav-item" *ngFor="let nav of navItems" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasResponsive">
         <a *ngIf="!nav.children" class="nav-link" (click)="offcanvas?.close()" aria-current="page" role="button" routerLinkActive="active" [routerLinkActiveOptions]="nav.routeparams??''" [routerLink]="nav.route"><span>
           <i class="fa-solid" [class]="nav.icon"></i> {{nav.name}}
@@ -25,7 +26,28 @@
         <ng-template *ngIf="nav.children" [ngTemplateOutlet]="navItemStack" [ngTemplateOutletContext]="{nav:nav}"></ng-template>
       </li>
     </ul>
+    <hr>
+    <div class="navbar-right row g-0"style="align-items: center;">
+      <div class="col-auto order-1">
+        <a class="nav-link p-1" (click)="setDark(!getIsDarkThemed())"><i class="fa-solid fa-lg" [class]="getIsDarkThemed()?'fa-moon':'fa-sun'" [style.color]="getIsDarkThemed()?'#ffffff':'#ffcc33'" style="cursor: pointer;"></i></a>
+      </div>
+      <div class="col-auto order-0 order-lg-2">
+        <div class="dropdown text-end" style="height: 32px;">
+          <a routerLinkActive="router-link-active"  class="d-flex align-items-center text-decoration-none dropdown-toggle" style="cursor: pointer;color:var(--bs-heading-color);" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-1">
+            <strong class="profile-name me-1">{{profileName}}</strong>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-lg-end text-small" >
+            <li><a class="dropdown-item" href="#">My Wishlist</a></li>
+            <li><a class="dropdown-item" [routerLink]="profilePath">Profile</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Sign out</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
+
 
 <ng-template #navItemStack let-nav="nav" let-drop="drop" let-child="child">
   <span [ngClass]="drop??'dropdown'" DropdownHover>
@@ -34,7 +56,7 @@
   </span></a>
 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
   <li *ngFor="let nav of nav.children">
-    <a *ngIf="!nav.children" class="dropdown-item" (click)="offcanvas?.close()" aria-current="page" [routerLink]="nav.route"><span>
+    <a *ngIf="!nav.children" class="dropdown-item" (click)="offcanvas.dismiss('Save click')" aria-current="page" [routerLink]="nav.route"><span>
       <i class="fa-solid" [class]="nav.icon"></i>{{nav.name}}
     </span></a>
     <ng-template *ngIf="nav.children" [ngTemplateOutlet]="navItemStack" [ngTemplateOutletContext]="{nav:nav,drop:'dropstart',child:true}"></ng-template>
