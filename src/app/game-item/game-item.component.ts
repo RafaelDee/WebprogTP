@@ -12,4 +12,6 @@ export class GameItem{
   cover:string;
   title:string;
   description?:string;
+  link:string;
+  bkgcover?:string;
 }
