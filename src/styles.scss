@@ -6,6 +6,14 @@
 .html,body,app-root{
   min-height: 100vh;
 }
+app-root{
+  display: grid;
+  grid-row: 2;
+  grid-auto-rows: min-content min-content auto min-content;
+}
+.footer{
+  height: auto;
+}
 .card{
   color: var(--bs-emphasis-color)!important;
 }

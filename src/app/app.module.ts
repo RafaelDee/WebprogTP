@@ -13,6 +13,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { CommunityComponent } from './community/community.component';
 import { GameItemComponent } from './game-item/game-item.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { GameItemComponent } from './game-item/game-item.component';
     AboutComponent,
     AccountManagerComponent,
     GameCodesComponent,
-  CommunityComponent,NavBarComponent, GameItemComponent],
+  CommunityComponent,NavBarComponent, GameItemComponent, NotFoundComponent],
   imports: [BrowserModule, AppRoutingModule, NgbModule],
   providers: [],
   bootstrap: [AppComponent],
