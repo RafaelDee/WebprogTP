@@ -1,13 +1,31 @@
-/*css*/
+
 *{
   box-sizing: border-box;
 }
 .introduction{
-  display: block;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
   border: solid;
-  background-color: #6f2cf5;
+  background-color: #702ef5;
   margin: 10px;
   color: white;
+}
+.texts, .popular, .recent{
+  border-left: solid 1px white;
+  border-right: solid 1px white;
+  padding: 5px;
+}
+.popular-content{
+  display: block;
+  background-color: #7a48df;
+  border: solid 1px rgb(0, 0, 0);
+  margin: 5px;
+}
+.recent-content{
+  display: block;
+  background-color: #7a48df;
+  border: solid 1px rgb(0, 0, 0);
+  margin: 5px;
 }
 body{
   background-color: #212529;
@@ -23,17 +41,41 @@ body{
 
 }
 .item{
+  position: relative;
   border: blue solid 1px;
   padding: 5px;
   margin: 10px;
   overflow: auto;
   color: white;
-}
-.item:hover{
-  border: white solid 1px;
-  transition: 1s;
-  color: yellow;
 
+}
+.item:hover .item-content{
+  color: yellow;
+  transition: 1s;
+}
+
+
+.item:hover > .item-title{
+  visibility: visible;
+
+
+  opacity: 100%;
+
+}
+.item-title{
+  left: 0;
+  color: white;
+  z-index: 100;
+  right: 0;
+  font-size: 20px;
+  padding: 1rem;
+  visibility: visible;
+  position: absolute;
+
+  background-color: rgba(3, 3, 3, 0.733);
+  top: 0px;
+  opacity: 0%;
+  transition: opacity .5s;
 
 }
 .discussion1{
@@ -44,9 +86,13 @@ body{
 
 
 }
+img{
+  float: left;
+  padding: 10px;
+}
 @media only screen and (max-width: 768px) {
   body {
-    background-color: lightblue;
+    background-color: #212529;
 
   }
 
