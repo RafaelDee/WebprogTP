@@ -1,1 +1,68 @@
+*{
+  box-sizing: border-box;
+}
+.introduction{
+  display: block;
+  border: solid;
+  background-color: #6f2cf5;
+  margin: 10px;
+  color: white;
+}
+body{
+  background-color: #212529;
+  border: solid 1px;
+}
 
+.discussion{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  border:solid;
+  margin: 10px;
+
+
+}
+.item{
+  border: blue solid 1px;
+  padding: 5px;
+  margin: 10px;
+  overflow: auto;
+  color: white;
+}
+.item:hover{
+  border: white solid 1px;
+  transition: 1s;
+  color: yellow;
+
+
+}
+.discussion1{
+  display: grid;
+  grid-template-columns: auto auto;
+  border:solid;
+  margin: 10px;
+
+
+}
+@media only screen and (max-width: 768px) {
+  body {
+    background-color: lightblue;
+
+  }
+
+  .discussion,.discussion1{
+    display: block;
+  }
+  .discussion{
+    border: none;
+    margin: 10px;
+  }
+  .discussion1{
+    border: none;
+    margin: 10px;
+  }
+  .introduction{
+    margin: 20px;
+  }
+
+
+}
