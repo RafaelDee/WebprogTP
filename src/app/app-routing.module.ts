@@ -7,6 +7,7 @@ import { AccountManagerComponent } from './accountManager/account-manager.compon
 import { AboutComponent } from './about/about.component';
 import { ProfileComponent } from './profile/profile.component';
 import { CommunityComponent } from './community/community.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   {path:"",pathMatch:"full",component:HomeComponent},
@@ -16,6 +17,8 @@ const routes: Routes = [
   {path:"profile",component:ProfileComponent},
   {path:"community",component:CommunityComponent},
   {path:"about",component:AboutComponent},
+  {path:"404",component:NotFoundComponent},
+  {path:"**",redirectTo:"404"},
 ];
 
 @NgModule({
