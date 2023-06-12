@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { GameItem } from 'src/assets/database';
 
 @Component({
   selector: 'app-game-item',
@@ -7,11 +8,4 @@ import { Component, Input } from '@angular/core';
 })
 export class GameItemComponent {
   @Input() item:GameItem;
-}
-export class GameItem{
-  cover:string;
-  title:string;
-  description?:string;
-  link:string;
-  bkgcover?:string;
 }
