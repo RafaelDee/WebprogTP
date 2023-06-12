@@ -1,1 +1,93 @@
+.carousel-caption {
+  right: 5%;
+  left: 5%;
+  top: 0%;
+  bottom: 0%;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-shadow: 1px 1px 3px black;
+}
+.carousel-control > * {
+  width: 7%;
+}
+.carousel-picker > :active {
+  background-color: #8d8c8c79;
+}
+.carousel-control-next {
+  > span {
+    filter: none !important;
+  }
+  background-image: linear-gradient(to left, black, transparent);
+}
+.carousel-control-prev {
+  > span {
+    filter: none !important;
+  }
+  background-image: linear-gradient(to right, black, transparent);
+}
+.carousel-indicators {
+  --bs-card-border-radius: 5px;
+  margin: 0px;
+  position: unset;
+  align-content: center;
+  width: max-content;
+  [data-bs-target] {
+    height: 100px;
+    align-items: center;
+    border: inherit;
+    box-sizing: inherit !important;
+    background-color: unset;
+    text-indent: unset;
+    opacity: 1;
+    transition: background-color 0.6s ease;
+    margin-bottom: 0.5rem;
+    padding: 3px;
+    display: flex;
+    width: unset;
+    > img {
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+  }
+  * {
+    border-radius: var(--bs-card-border-radius);
+  }
+  > .active {
+    background-color: #8d8c8c79 !important;
+  }
+}
+/* asd */
+.about-game >* {
+  margin-bottom: 0.7rem;
+}
+.tags>.badge{
+  margin-bottom: 0.2rem;
+  margin-left: 0.2rem;
+}
+.text-price {
+  color: var(--bs-light-text-emphasis);
+  font-weight: 600;
+}
+.details > * {
+  margin-bottom: 0.5rem;
+  width: 100%;
+}
+.list-group>.list-group-item{
+  padding: 0.7rem 0.4rem;
+}
+ngb-rating i {
+  position: relative;
+  display: inline-block;
+  padding-right: 0.1rem;
+  color:#8d8d8d;
+}
 
+ngb-rating .filled {
+  color: var(--bs-light-text-emphasis);
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
