@@ -11,7 +11,7 @@ export class GameItem{
   link:string;
   specification:{recommended:{title:string,content: string}[],minimum:{title:string,content: string}[]}
   supportedLang:{title:string,content: string}[];
-  readonly cover? = this.covers.length<0?this.covers[0]:null
+  readonly cover? = this.covers?.length<0?this.covers[0]:null
   ratings:number;
   developer?:string;
   publisher?:string;
