@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { games } from 'src/assets/database';
 import * as moment from 'moment';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-game-description',
   templateUrl: './game-description.component.html',
@@ -8,10 +9,17 @@ import * as moment from 'moment';
 })
 export class GameDescriptionComponent {
   moment=moment;
-  currentGame = games[0];
+  currentGame;
+  constructor(private route: ActivatedRoute){
+
+  }
   ariaValueText(current: number, max: number) {
 		return `${current} out of ${max} hearts`;
 	}
+  ngOnInit(){
+    let id = this.route.snapshot.paramMap.get('id');
+    this.currentGame = games.find(asd=>asd.id == id);
+  }
 }
 function getFileType(file) {
 

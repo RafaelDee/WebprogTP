@@ -1,6 +1,6 @@
 
-export class GameItem{
-
+export interface GameItem{
+  id:string
   title:string;
   covers?:string[];
   titleCover:string;
@@ -11,7 +11,6 @@ export class GameItem{
   link:string;
   specification:{recommended:{title:string,content: string}[],minimum:{title:string,content: string}[]}
   supportedLang:{title:string,content: string}[];
-  readonly cover? = this.covers?.length<0?this.covers[0]:null
   ratings:number;
   developer?:string;
   publisher?:string;
@@ -20,6 +19,7 @@ export class GameItem{
 }
 export const games: GameItem[] = [
   {
+    id:'gnshnimct',
     title: 'Genshin Impact',previousPrice:1499,ratings:4.3,releaseDate:new Date('September 28, 2020'),
     covers: ['https://cdn.mos.cms.futurecdn.net/JarKa4TVZxSCuN8x8WNPSN.jpg','https://cdn2.unrealengine.com/en-1-1920x1080-28aaa8b26eeb.jpg','https://cdn2.unrealengine.com/en-2-1920x1080-d4392c632061.jpg'],
     link: 'https://genshin.hoyoverse.com/en/',tags:['Adventure','Fantasy','Open World','RPG','Cross Platform','MMO','Multiplayer'],
