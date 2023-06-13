@@ -42,15 +42,25 @@ body{
 }
 .item{
   position: relative;
-  border: blue solid 1px;
+  border: rgb(88, 87, 87) solid 1px;
   padding: 5px;
   margin: 10px;
   overflow: auto;
   color: white;
 
 }
+.item-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
 .item:hover .item-content{
   color: yellow;
+  transition: 1s;
+}
+.item:hover{
+  border: white solid 1px;
   transition: 1s;
 }
 
@@ -78,6 +88,9 @@ body{
   transition: opacity .5s;
 
 }
+iframe{
+  padding: 10px;
+}
 .discussion1{
   display: grid;
   grid-template-columns: auto auto;
@@ -90,11 +103,9 @@ img{
   float: left;
   padding: 10px;
 }
-@media only screen and (max-width: 768px) {
-  body {
-    background-color: #212529;
 
-  }
+@media only screen and (max-width: 1000px) {
+
 
   .discussion,.discussion1{
     display: block;
@@ -110,6 +121,22 @@ img{
   .introduction{
     margin: 20px;
   }
+  .introduction{
+    display: grid;
+    grid-template-columns: auto;
+  }
+  .texts, .popular, .recent{
+    border-top: solid 1px white;
+    border-bottom: solid 1px white;
+    padding: 5px;
 
+      border-left: 0px ;
+      border-right: 0px ;
+
+  }
+  .item-content{
+    display: block;
+
+  }
 
 }
