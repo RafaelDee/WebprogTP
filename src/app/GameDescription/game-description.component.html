@@ -3,7 +3,7 @@
   <div class="game">
     <div class="game-content pb-5 pb-lg-0">
       <!-- data-bs-ride="carousel" -->
-      <div id="gamesCarousel" class="carousel slide row carousel-fade mx-0 g-0" data-bs-ride="carousel" >
+      <div id="gamesCarousel" class="carousel slide row carousel-fade mx-0 g-0" >
         <div style="position: relative; --bs-card-border-radius: 20px;">
           <div class="carousel-inner" style="border-radius:20px;">
             <div *ngFor="let preview of currentGame?.videoPreviews;let i = index" class="carousel-item"
@@ -92,7 +92,7 @@
       <p class="short-description max-lines-3 text-light-emphasis" style="font-size: 1.2em;" [innerText]="currentGame.shortDesc">
       </p>
       <h4 class="mb-3">About Game</h4>
-      <div id="desc-content" class="desc-content" [innerHTML]="'<style>desc-content *{max-width: 100%!important;}</style>'+currentGame.description| safeHTML ">
+      <div id="desc-content" class="desc-content" [innerHTML]="'<style>.desc-content *{max-width: 100%!important;}</style>'+currentGame.description| safeHTML ">
       </div>
     </div>
   </div>

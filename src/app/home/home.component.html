@@ -7,7 +7,7 @@
           <div *ngFor="let item of spotlightItems;let i = index" class="carousel-item" [ngClass]="{active:i==0}">
             <img [src]="item.covers[0]" class="d-block w-100 aspect-ratio-16x9" alt="...">
             <div class="carousel-caption d-none d-md-block text-white">
-              <h1>{{item.title}}</h1>
+              <h1 class="text-white">{{item.title}}</h1>
               <p class="max-lines-2 text-align-start">{{item.shortDesc}}</p>
               <a type="button" class="btn btn-secondary btn-lg" [routerLink]="['game',item.id]">Play Now</a>
             </div>
