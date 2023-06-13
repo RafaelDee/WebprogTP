@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
 import { filter } from 'rxjs';
+import { currentAcc } from 'src/assets/database';
 import { appname} from 'src/main';
 @Component({
   selector: 'nav-bar',
@@ -17,7 +18,7 @@ export class NavBarComponent implements OnInit {
     { name: 'Community', route: 'community', icon: "fa-people-group" },
   ];
   profilePath = 'profile'
-  profileName = 'mdo'
+  profile:displayAcc = currentAcc;
   setDark = setDark;
   getIsDarkThemed = getIsDarkThemed;
   currentRoute = '';
@@ -54,3 +55,7 @@ return document.documentElement.getAttribute("data-bs-theme") == "dark";
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
 setDark(event.matches)
 });
+export interface displayAcc{
+  username:string;
+  photoURL:string;
+}

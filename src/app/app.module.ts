@@ -14,6 +14,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { CommunityComponent } from './community/community.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { GameItemComponent } from './game-item/game-item.component';
+import { SafeHTMLPipe } from './safe-html.pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { GameItemComponent } from './game-item/game-item.component';
     AboutComponent,
     AccountManagerComponent,
     GameCodesComponent,
-  CommunityComponent,NavBarComponent, NotFoundComponent, GameItemComponent],
+  CommunityComponent,NavBarComponent, NotFoundComponent, GameItemComponent, SafeHTMLPipe],
   imports: [BrowserModule, AppRoutingModule, NgbModule],
   providers: [],
   bootstrap: [AppComponent],

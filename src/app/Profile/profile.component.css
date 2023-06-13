@@ -2,3 +2,11 @@
 .bg-dark{
   background-color: rgba(var(--bs-tertiary-bg-rgb),var(--bs-bg-opacity))!important;
 }
+.img-fluid{
+  height: 100%;
+  object-fit: cover;
+
+}
+.achievement-item img{
+  aspect-ratio: 25/9;
+}

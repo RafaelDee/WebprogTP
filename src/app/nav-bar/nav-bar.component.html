@@ -33,11 +33,11 @@
       <div class="col-auto order-1">
         <a class="nav-link p-1" (click)="setDark(!getIsDarkThemed())"><i class="fa-solid fa-lg" [class]="getIsDarkThemed()?'fa-moon':'fa-sun'" [style.color]="getIsDarkThemed()?'#ffffff':'#ffcc33'" style="cursor: pointer;"></i></a>
       </div>
-      <div class="col-auto order-0 order-lg-2">
+      <div *ngIf="profile as prof" class="col-auto order-0 order-lg-2">
         <div class="dropdown text-end" style="height: 32px;">
           <a routerLinkActive="router-link-active"  class="d-flex align-items-center text-decoration-none dropdown-toggle" style="cursor: pointer;color:var(--bs-heading-color);" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-1">
-            <strong class="profile-name me-1">{{profileName}}</strong>
+            <img [src]="prof.photoURL" alt="" width="32" height="32" class="rounded-circle me-1">
+            <strong class="profile-name me-1">{{prof.username}}</strong>
           </a>
           <ul class="dropdown-menu dropdown-menu-lg-end text-small" >
             <li><a class="dropdown-item" href="#">My Wishlist</a></li>

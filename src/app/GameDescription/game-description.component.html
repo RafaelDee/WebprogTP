@@ -3,12 +3,20 @@
   <div class="game">
     <div class="game-content pb-5 pb-lg-0">
       <!-- data-bs-ride="carousel" -->
-      <div id="gamesCarousel" class="carousel slide row carousel-fade mx-0 g-0" data-bs-ride="carousel">
+      <div id="gamesCarousel" class="carousel slide row carousel-fade mx-0 g-0" data-bs-ride="carousel" >
         <div style="position: relative; --bs-card-border-radius: 20px;">
           <div class="carousel-inner" style="border-radius:20px;">
-            <div *ngFor="let cover of currentGame.covers;let i = index" class="carousel-item"
+            <div *ngFor="let preview of currentGame?.videoPreviews;let i = index" class="carousel-item"
               [ngClass]="{'active':i == 0}">
-              <img [src]="cover" class="d-block w-100">
+              <video controls muted class="d-block w-100 aspect-ratio-16x9" (play)="play()" (pause)="pause()" (playing)="playing(i)" [poster]="preview[1]">
+                <source [src]="preview[0]" type="video/mp4">
+
+              Your browser does not support the video tag.
+              </video>
+            </div>
+            <div *ngFor="let cover of currentGame.covers;let i = index" class="carousel-item"
+              [ngClass]="{'active':(i + currentGame.videoPreviews?.length??0) == 0}">
+              <img [src]="cover" class="d-block w-100 aspect-ratio-16x9">
             </div>
             <div class="carousel-control">
               <button class="carousel-control-prev" type="button" data-bs-target="#gamesCarousel" data-bs-slide="prev">
@@ -24,8 +32,12 @@
         </div>
         <div style="overflow-x: auto;">
           <div class="carousel-indicators pe-3 py-3">
-            <button *ngFor="let cover of currentGame.covers;let i = index" [class]="{'active':i == 0}"
+            <button *ngFor="let cover of currentGame.videoPreviews;let i = index" [class]="{'active':i == 0}"
               data-bs-target="#gamesCarousel" [attr.data-bs-slide-to]="i" [attr.aria-current]="i == 0">
+              <img class="h-100" [src]="cover[1]">
+            </button>
+            <button *ngFor="let cover of currentGame.covers;let i = index" [class]="{'active':(i + currentGame.videoPreviews?.length??0) == 0}"
+              data-bs-target="#gamesCarousel" [attr.data-bs-slide-to]="((i + currentGame.videoPreviews?.length??0))" [attr.aria-current]="(i + currentGame.videoPreviews?.length??0) == 0">
               <img class="h-100" [src]="cover">
             </button>
           </div>
@@ -60,15 +72,15 @@
           </li>
           <li class="list-group-item d-flex justify-content-between">
             <span style="font-weight: 600;" class="text-body-secondary">Developer:</span>
-            <span class="text-light-emphasis" [innerText]="currentGame.developer??'Unknown'"></span>
+            <span class="text-light-emphasis" style="text-align:end" [innerText]="currentGame.developer??'Unknown'"></span>
           </li>
           <li class="list-group-item d-flex justify-content-between">
             <span style="font-weight: 600;" class="text-body-secondary">Publisher:</span>
-            <span class="text-light-emphasis" [innerText]="currentGame.publisher??'Unknown'"></span>
+            <span class="text-light-emphasis" style="text-align:end" [innerText]="currentGame.publisher??'Unknown'"></span>
           </li>
           <li class="list-group-item d-flex justify-content-between">
             <span style="font-weight: 600;" class="text-body-secondary">Release Date:</span>
-            <span class="text-light-emphasis">{{moment(currentGame.releaseDate).format('LL')}}</span>
+            <span class="text-light-emphasis" style="text-align:end">{{moment(currentGame.releaseDate).format('LL')}}</span>
           </li>
           <li class="list-group-item tags">
             <span *ngFor="let tag of currentGame.tags" class="badge bg-secondary">{{tag}}</span>
@@ -80,7 +92,7 @@
       <p class="short-description max-lines-3 text-light-emphasis" style="font-size: 1.2em;" [innerText]="currentGame.shortDesc">
       </p>
       <h4 class="mb-3">About Game</h4>
-      <div class="desc-content" [innerHTML]="currentGame.description">
+      <div id="desc-content" class="desc-content" [innerHTML]="'<style>desc-content *{max-width: 100%!important;}</style>'+currentGame.description| safeHTML ">
       </div>
     </div>
   </div>

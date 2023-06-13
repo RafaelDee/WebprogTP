@@ -1,3 +1,4 @@
+import { currentAcc } from './../../assets/database';
 import { Component } from '@angular/core';
 
 @Component({
@@ -9,6 +10,7 @@ export class ProfileComponent {
   constructor() {
 
   }
+  currentAcc = currentAcc;
   ngOnInit() {
     //put js code here
 
