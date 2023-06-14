@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
-import { filter } from 'rxjs';
-import { currentAcc } from 'src/assets/database';
+import { Observable, filter } from 'rxjs';
 import { appname} from 'src/main';
+import { AuthService, User } from '../auth.service';
 @Component({
   selector: 'nav-bar',
   templateUrl: './nav-bar.component.html',
@@ -18,11 +18,10 @@ export class NavBarComponent implements OnInit {
     { name: 'Community', route: 'community', icon: "fa-people-group" },
   ];
   profilePath = 'profile'
-  profile:displayAcc = currentAcc;
   setDark = setDark;
   getIsDarkThemed = getIsDarkThemed;
   currentRoute = '';
-  constructor(router: Router) {
+  constructor(router: Router,public auth:AuthService) {
     //Update the header of the current route
     router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
@@ -30,6 +29,9 @@ export class NavBarComponent implements OnInit {
         this.currentRoute =
           this.navItems.find((f) => f.route == ((url as NavigationEnd).url?.split('/')[1]))?.name ?? '';
       });
+  }
+  logout(){
+    this.auth.logout();
   }
   ngOnInit(): void {}
 }
@@ -57,5 +59,5 @@ setDark(event.matches)
 });
 export interface displayAcc{
   username:string;
-  photoURL:string;
+  photoURL?:string;
 }

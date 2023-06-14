@@ -15,7 +15,9 @@ import { CommunityComponent } from './community/community.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { GameItemComponent } from './game-item/game-item.component';
 import { SafeHTMLPipe } from './safe-html.pipe';
-
+import { LoginComponent } from './accountManager/login/login.component';
+import { SignupComponent } from './accountManager/signup/signup.component';
+import { CookieModule } from 'ngx-cookie';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,8 +27,8 @@ import { SafeHTMLPipe } from './safe-html.pipe';
     AboutComponent,
     AccountManagerComponent,
     GameCodesComponent,
-  CommunityComponent,NavBarComponent, NotFoundComponent, GameItemComponent, SafeHTMLPipe],
-  imports: [BrowserModule, AppRoutingModule, NgbModule],
+  CommunityComponent,NavBarComponent, NotFoundComponent, GameItemComponent, SafeHTMLPipe, LoginComponent, SignupComponent],
+  imports: [BrowserModule, AppRoutingModule, NgbModule,CookieModule.withOptions()],
   providers: [],
   bootstrap: [AppComponent],
 })

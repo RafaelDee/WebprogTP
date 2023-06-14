@@ -53,7 +53,8 @@
         <p class="text-price"><s>₱{{currentGame.previousPrice.toLocaleString('en-US')}}</s> <span
             class="after ps-1">FREE</span></p>
         <a class="btn p-3 btn-primary" [attr.href]="currentGame.link" target="_blank">Get Game</a>
-        <button type="button" class="btn btn-outline-theme"><i class="fa-solid fa-plus"></i> Add to Wishlist</button>
+        <button type="button" class="btn btn-outline-theme" (click)="addToWishlist(true)" *ngIf="(auth.currentUser?.wishlist?.get(currentGame.id)??false) == false"><i class="fa-solid fa-plus"></i> Add to Wishlist</button>
+        <button type="button" class="btn btn-outline-theme" (click)="addToWishlist(false)" *ngIf="(auth.currentUser?.wishlist?.get(currentGame.id)??false) == true"><i class="fa-solid fa-minus"></i> Remove to Wishlist</button>
         <ul class="list-group list-group-flush">
           <li class="list-group-item d-flex justify-content-between">
             <span style="font-weight: 600;" class="text-body-secondary">Ratings: </span>

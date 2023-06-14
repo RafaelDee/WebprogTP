@@ -2,6 +2,7 @@
   <img [src]="item.covers?.length > 0?item.covers[0]:null" class="card-img-top aspect-ratio-16x9">
   <div class="card-body">
     <h5 class="card-title">{{item.title}}</h5>
+    <span><small><s class="text-small text-body-secondary">₱{{item.previousPrice.toLocaleString('en-US')}}</s></small><b> FREE</b></span>
     <p class="card-text max-lines-3">{{item.shortDesc}}</p>
   </div>
 </div>

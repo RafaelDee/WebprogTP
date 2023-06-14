@@ -33,20 +33,22 @@
       <div class="col-auto order-1">
         <a class="nav-link p-1" (click)="setDark(!getIsDarkThemed())"><i class="fa-solid fa-lg" [class]="getIsDarkThemed()?'fa-moon':'fa-sun'" [style.color]="getIsDarkThemed()?'#ffffff':'#ffcc33'" style="cursor: pointer;"></i></a>
       </div>
-      <div *ngIf="profile as prof" class="col-auto order-0 order-lg-2">
-        <div class="dropdown text-end" style="height: 32px;">
+      <div  class="col-auto order-0 order-lg-2 ms-1">
+        <div *ngIf="auth.currentUser as prof;else elseBlock" class="dropdown text-end" style="height: 32px;">
           <a routerLinkActive="router-link-active"  class="d-flex align-items-center text-decoration-none dropdown-toggle" style="cursor: pointer;color:var(--bs-heading-color);" data-bs-toggle="dropdown" aria-expanded="false">
-            <img [src]="prof.photoURL" alt="" width="32" height="32" class="rounded-circle me-1">
+            <img [src]="prof.photoURL" alt="" width="32" height="32" class="rounded-circle ">
             <strong class="profile-name me-1">{{prof.username}}</strong>
           </a>
           <ul class="dropdown-menu dropdown-menu-lg-end text-small" >
             <li><a class="dropdown-item" href="#">My Wishlist</a></li>
             <li><a class="dropdown-item" [routerLink]="profilePath">Profile</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Sign out</a></li>
+            <li><a class="dropdown-item" (click)="logout()">Sign out</a></li>
           </ul>
         </div>
+        <ng-template #elseBlock><button type="button" class="btn btn-outline-primary" routerLinkActive="d-none" routerLink="./auth/login">Login</button></ng-template>
       </div>
+
     </div>
   </div>
 

@@ -18,14 +18,8 @@ export interface GameItem{
   releaseDate:Date;
   tags:string[]
 }
+
 export const loremipsum = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim distinctio ut cupiditate, soluta rem error impedit et autem doloribus sit! Minus aspernatur velit neque natus doloribus veniam! Maxime, vitae accusantium.';
-export interface Account{
-  username:string;
-  photoURL:string;
-  password:string;
-  email:string;
-}
-export const currentAcc:Account = {username:'mdo',photoURL:'https://cdn.akamai.steamstatic.com/steamcommunity/public/images/items/774171/9bf2375b6f7db6c0275fc9d6e4ed85cbe51bf9ab.gif',email:'mdo@gmail.com',password:'12345678'}
 const defaultspec = {
   minimum: [
     {

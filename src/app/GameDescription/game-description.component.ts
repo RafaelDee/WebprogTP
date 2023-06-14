@@ -1,5 +1,6 @@
+import { AuthService } from './../auth.service';
 import { Component, OnInit } from '@angular/core';
-import { games } from 'src/assets/database';
+import { GameItem, games } from 'src/assets/database';
 import * as moment from 'moment';
 import { ActivatedRoute } from '@angular/router';
 @Component({
@@ -9,11 +10,14 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class GameDescriptionComponent {
   moment = moment;
-  currentGame;
+  currentGame:GameItem;
   playingIndex:number = null;
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute,public auth:AuthService) {}
   ariaValueText(current: number, max: number) {
     return `${current} out of ${max} hearts`;
+  }
+  addToWishlist(state:boolean){
+    this.auth.addToWishlist(this.currentGame.id,state)
   }
   ngAfterViewInit(){
     const myCarousel = document.querySelector('#gamesCarousel');

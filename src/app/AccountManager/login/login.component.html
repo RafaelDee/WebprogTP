@@ -1,0 +1,25 @@
+
+<div class="w-100 h-100 d-flex align-items-center justify-content-center" >
+
+<div class="container card col-12 col-sm-8">
+  <h2 class="form-title">Login</h2>
+  <div *ngIf="loginRequired" class="alert alert-warning text-center" role="alert">
+    You must be logged in before using this feature
+  </div>
+  <div *ngIf="loginStatus" class="alert alert-danger" role="alert">
+    {{loginStatus.message}}
+  </div>
+  <form (submit)="login();$event.preventDefault()">
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input #email type="email" id="email" placeholder="Enter your email" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input #password type="password" id="password" placeholder="Enter your password" required>
+    </div>
+    <button type="submit" class="btn mb-3" >Login</button>
+    <p class="form-link">Don't have an account? <a routerLink="../signup">Register</a></p>
+  </form>
+</div>
+</div>
