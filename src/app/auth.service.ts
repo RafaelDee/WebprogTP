@@ -1,6 +1,7 @@
 
 import { EventEmitter, Injectable, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { faker } from '@faker-js/faker';
 import { CookieService } from 'ngx-cookie';
 import { Observable, find } from 'rxjs';
 import { v4 as uuidv4 } from 'uuid';
@@ -8,14 +9,14 @@ import { v4 as uuidv4 } from 'uuid';
   providedIn: 'root'
 })
 export class AuthService implements OnInit {
-  defaultProfile:User = {uid:'a093d51c-1b22-48d3-8f50-bb061d188429',username:'mdo',photoURL:'https://cdn.akamai.steamstatic.com/steamcommunity/public/images/items/774171/9bf2375b6f7db6c0275fc9d6e4ed85cbe51bf9ab.gif',email:'mdo@gmail.com',password:'12345678'}
+  defaultProfile:User = {uid:'a093d51c-1b22-48d3-8f50-bb061d188429',username:'mdo',about:faker.person.bio(),photoURL:'https://cdn.akamai.steamstatic.com/steamcommunity/public/images/items/774171/9bf2375b6f7db6c0275fc9d6e4ed85cbe51bf9ab.gif',email:'mdo@gmail.com',password:'mdo1233412mdo'}
 
   public currentUser:User;
   users:User[] = [
-    {...this.defaultProfile,uid:'a093d51c-1b22-48d3-8f50-bb061d188429',email:'mdo@gmail.com',password:'12345678',username:'mdo'}
+    {...this.defaultProfile,uid:'a093d51c-1b22-48d3-8f50-bb061d188429',email:'mdo@gmail.com',password:'mdo1233412mdo',username:'mdo'}
   ]
   constructor(private router:Router,private cookieService: CookieService) {
-    this.users = this.cookieService.get('users')?JSON.parse(this.cookieService.get('users')):this.users
+    this.users = this.cookieService.get('users')?JSON.parse(this.cookieService.get('users')) as User[]:this.users
     console.log(this.users);
     this.currentUser = this.users?.find(user=> user.uid == this.cookieService.get('currUsr'))
     console.log(this.currentUser);
@@ -28,14 +29,16 @@ export class AuthService implements OnInit {
       this.router.navigate(['./auth/login'],{queryParams:{'loginRequired':true}})
       return;
     }
+    let index = this.users.findIndex(user=> user.uid == this.currentUser.uid)
     if(!add){
-      this.users.find(user=> user.uid == this.cookieService.get('currUsr')).wishlist.delete(id)
-      this.currentUser = this.users.find(user=> user.uid == this.cookieService.get('currUsr'))
+      this.users[index].wishlist?.delete(id)
+      this.currentUser = this.users[index];
       return;
     }
-    if(this.users.find(user=> user.uid == this.currentUser.uid).wishlist == null)this.users.find(user=> user.uid == this.currentUser.uid).wishlist = new Map<string,boolean>;
-    this.users.find(user=> user.uid == this.currentUser.uid).wishlist.set(id,true)
-    this.currentUser = this.users.find(user=> user.uid == this.currentUser.uid);
+
+    if(this.users[index].wishlist == null)this.users[index].wishlist = new Map<string,boolean>;
+    this.users[index].wishlist.set(id,true)
+    this.currentUser = this.users[index];
   }
   login(email:string,password:string){
     let user = [...this.users.values()].find(user=>user.email == email)
@@ -47,6 +50,7 @@ export class AuthService implements OnInit {
       throw Error("Passwords do not Match");
     }
     this.currentUser = user;
+    this.cookieService.put('currUsr',user.uid)
     this.router.navigate(['./'])
   }
   signup(username:string,email:string,password:string,Cpassword:string){
@@ -58,7 +62,7 @@ export class AuthService implements OnInit {
       throw Error("Passwords do not Match");
     }
     let uid = uuidv4();
-    this.users.push(uid,{...this.defaultProfile,email:email,password:password,username:username,uid:uid})
+    this.users.push(uid,{about:faker.person.bio(),email:email,password:password,username:username,uid:uid,photoURL:faker.image.avatar()})
     this.router.navigate(['./auth/login'])
     this.cookieService.put('users',JSON.stringify(this.users))
   }
@@ -72,6 +76,7 @@ export interface User{
   uid:string;
   username:string;
   photoURL?:string;
+  about:string;
   password:string;
   email:string;
   wishlist?:Map<string,boolean>

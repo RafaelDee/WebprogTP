@@ -48,9 +48,9 @@
 
 
   <div class="row">
-    <div class="col-lg-9 col-sm-12" *ngFor="let achievement of randomAcheivements">
-      <div class="p-0  my-2">
-        <div class="card achievement-item bg-dark " style="max-width: 1080px;">
+    <div class="col-lg-9 col-sm-12" >
+      <div class="p-0  my-2" *ngFor="let achievement of randomAcheivements">
+        <div class="card achievement-item bg-dark "  style="max-width: 1080px;">
           <div class="row g-0">
             <div class="col-md-4">
               <img [src]="achievement.cover" class="img-fluid rounded-start" alt="...">
@@ -69,6 +69,39 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-sm-12 border rounded border-secondary my-2" style="height: fit-content;">
+      <div class="row">
+        <div class="col-12 px-3 py-2 border border-secondary  rounded mb-2"><h5>Status: Currently Offline<br>Last played: 7 days ago</h5></div>
+        <div class="col-12 border border-secondary  rounded">Badges:<br>
+        <img src="/assets/medals.webp" alt="" style="max-width: 100%">
+        </div>
+
+        <div class="col-12 border border-secondary  rounded my-2">Notifications:
+
+          <div *ngFor="let notifs of randomNotifs" class="toast fade show bg-dark border-secondary my-2" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header bg-dark border-secondary">
+              <img class="rounded me-2" [src]="notifs.image" width="20" height="20">
+
+              <strong class="me-auto">{{notifs.title}}</strong>
+              <small>{{moment(notifs.date).fromNow()}}</small>
+              <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+              {{notifs.message}}
+            </div>
+          </div>
+
+          <div class="col-12 d-grid gap-2 my-3 ">
+            <button class="btn btn-outline-secondary btn-lg" type="button">See All</button>
+          </div>
+
+        </div>
+
+        <div class="col-12 border border-secondary  rounded">Games Claimed: 152</div>
+
+
       </div>
     </div>
   </div>

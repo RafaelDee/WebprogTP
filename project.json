@@ -38,7 +38,7 @@
             {
               "type": "initial",
               "maximumWarning": "500kb",
-              "maximumError": "1mb"
+              "maximumError": "5mb"
             },
             {
               "type": "anyComponentStyle",
@@ -49,8 +49,8 @@
           "outputHashing": "all"
         },
         "development": {
-          "buildOptimizer": false,
-          "optimization": false,
+          "buildOptimizer": true,
+          "optimization": true,
           "vendorChunk": true,
           "extractLicenses": false,
           "sourceMap": true,

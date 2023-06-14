@@ -6,6 +6,18 @@
   <div *ngIf="loginRequired" class="alert alert-warning text-center" role="alert">
     You must be logged in before using this feature
   </div>
+  <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <strong class="me-auto">Test Account</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      <div>email: mdo@gmail.com</div>
+      <div>password: mdo1233412mdo</div>
+
+
+    </div>
+  </div>
   <div *ngIf="loginStatus" class="alert alert-danger" role="alert">
     {{loginStatus.message}}
   </div>

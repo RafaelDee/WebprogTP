@@ -2,6 +2,7 @@ import { AuthService } from './../auth.service';
 
 import { Component } from '@angular/core';
 import { faker } from '@faker-js/faker';
+import * as moment from 'moment';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -24,6 +25,15 @@ export class ProfileComponent {
       cover:faker.image.urlPicsumPhotos(),
     };
   }
+  createNotifs(): Notification {
+    return {
+      title:faker.person.firstName(),
+      image:faker.image.avatar(),
+      message:faker.lorem.sentence(3),
+      date:faker.date.past()
+    };
+  }
+  moment = moment;
   profiledesc = faker.person.bio();
   recentylClaimed:{cover:string}[] = faker.helpers.multiple(this.createCaimed, {
     count: 4
@@ -31,10 +41,19 @@ export class ProfileComponent {
   randomAcheivements: Achievements[] = faker.helpers.multiple(this.createRandomUser, {
     count: 10
   });
+  randomNotifs: Notification[] = faker.helpers.multiple(this.createNotifs, {
+    count: 3
+  });
+
   ngOnInit() {
     //put js code here
-
   }
+}
+export class Notification{
+  title:string;
+  image:string;
+  message:string;
+  date:Date;
 }
 export class Achievements{
   title:string;
