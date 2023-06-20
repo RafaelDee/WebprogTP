@@ -1,1 +1,143 @@
 
+*{
+  box-sizing: border-box;
+}
+.introduction{
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  border: solid;
+  background-color: #702ef5;
+  margin: 10px;
+  color: white;
+}
+.texts, .popular, .recent{
+  border-left: solid 1px white;
+  border-right: solid 1px white;
+  padding: 5px;
+}
+.popular-content{
+  display: block;
+  background-color: #7a48df;
+  border: solid 1px rgb(0, 0, 0);
+  margin: 5px;
+}
+.recent-content{
+  display: block;
+  background-color: #7a48df;
+  border: solid 1px rgb(0, 0, 0);
+  margin: 5px;
+}
+body{
+  background-color: #212529;
+  border: solid 1px;
+}
+
+.discussion{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  border:solid;
+  margin: 10px;
+
+
+}
+.item{
+  position: relative;
+  border: rgb(88, 87, 87) solid 1px;
+  padding: 5px;
+  margin: 10px;
+  overflow: auto;
+  color: white;
+
+}
+.item-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.item:hover .item-content{
+  color: yellow;
+  transition: 1s;
+}
+.item:hover{
+  border: white solid 1px;
+  transition: 1s;
+}
+
+
+.item:hover > .item-title{
+  visibility: visible;
+
+
+  opacity: 100%;
+
+}
+.item-title{
+  left: 0;
+  color: white;
+  z-index: 100;
+  right: 0;
+  font-size: 20px;
+  padding: 1rem;
+  visibility: visible;
+  position: absolute;
+
+  background-color: rgba(3, 3, 3, 0.733);
+  top: 0px;
+  opacity: 0%;
+  transition: opacity .5s;
+
+}
+iframe{
+  padding: 10px;
+}
+.discussion1{
+  display: grid;
+  grid-template-columns: auto auto;
+  border:solid;
+  margin: 10px;
+
+
+}
+img{
+  float: left;
+  padding: 10px;
+}
+
+@media only screen and (max-width: 1000px) {
+
+
+  .discussion,.discussion1{
+    display: block;
+  }
+  .discussion{
+    border: none;
+    margin: 10px;
+  }
+  .discussion1{
+    border: none;
+    margin: 10px;
+  }
+  .introduction{
+    margin: 20px;
+  }
+  .introduction{
+    display: grid;
+    grid-template-columns: auto;
+  }
+  .texts, .popular, .recent{
+    border-top: solid 1px white;
+    border-bottom: solid 1px white;
+    padding: 5px;
+
+      border-left: 0px ;
+      border-right: 0px ;
+
+  }
+  .item-content{
+    display: block;
+
+
+  }
+
+}

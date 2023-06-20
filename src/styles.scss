@@ -34,6 +34,13 @@ app-root{
            line-clamp: 3;
    -webkit-box-orient: vertical;
 }
+.max-lines-5{
+  overflow: hidden;
+   display: -webkit-box;
+   -webkit-line-clamp: 5; /* number of lines to show */
+           line-clamp: 5;
+   -webkit-box-orient: vertical;
+}
 .max-lines-2{
   overflow: hidden;
    display: -webkit-box;
