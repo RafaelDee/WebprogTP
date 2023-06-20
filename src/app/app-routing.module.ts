@@ -1,6 +1,6 @@
 
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, NavigationStart, Router, RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { GameDescriptionComponent } from './gameDescription/game-description.component';
 import { GameCodesComponent } from './gameCodes/game-codes.component';
@@ -12,19 +12,20 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { LoginComponent } from './accountManager/login/login.component';
 import { SignupComponent } from './accountManager/signup/signup.component';
 import { hasAuth } from './auth.guard';
+import { appname } from 'src/main';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', component: HomeComponent },
+  { path: '', pathMatch: 'full', component: HomeComponent},
   { path: 'game/:id', component: GameDescriptionComponent },
-  { path: 'gamecodes', component: GameCodesComponent },
+  { path: 'gamecodes', component: GameCodesComponent ,title:'Game Codes'},
   { path: 'auth', component: AccountManagerComponent, children: [
-    {path:'login',component:LoginComponent},
-    {path:'signup',component:SignupComponent}
+    {path:'login',component:LoginComponent ,title:'Login'},
+    {path:'signup',component:SignupComponent,title:'Signup'}
   ] },
   { path: 'profile', component: ProfileComponent,canActivate:[hasAuth]},
-  { path: 'community', component: CommunityComponent },
-  { path: 'about', component: AboutComponent },
-  { path: '404', component: NotFoundComponent },
+  { path: 'community', component: CommunityComponent ,title:'Community'},
+  { path: 'about', component: AboutComponent ,title:'About'},
+  { path: '404', component: NotFoundComponent ,title:'Not Found!'},
   { path: '**', redirectTo: '404' },
 ];
 @NgModule({
@@ -33,4 +34,14 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+  constructor(private router:Router,private route:ActivatedRoute){
+    router.events.subscribe((rte) => {
+      // see also
+      if(rte instanceof NavigationStart){
+        document.title = appname;
+      }
+  });
+  }
+}
+

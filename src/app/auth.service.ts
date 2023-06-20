@@ -17,9 +17,9 @@ export class AuthService implements OnInit {
   ]
   constructor(private router:Router,private cookieService: CookieService) {
     this.users = this.cookieService.get('users')?JSON.parse(this.cookieService.get('users')) as User[]:this.users
-    console.log(this.users);
+    let cuid = this.cookieService.get('currUsr')
+    if(cuid == null || cuid == undefined)return;
     this.currentUser = this.users?.find(user=> user.uid == this.cookieService.get('currUsr'))
-    console.log(this.currentUser);
   }
   ngOnInit(){
   }
@@ -45,7 +45,6 @@ export class AuthService implements OnInit {
     if(user == null){
       throw Error("Account does not exist");
     }
-    console.log(`${user.password} != ${password} = ${user.password != password}`)
     if(user.password != password){
       throw Error("Passwords do not Match");
     }
@@ -67,8 +66,8 @@ export class AuthService implements OnInit {
     this.cookieService.put('users',JSON.stringify(this.users))
   }
   logout(){
+    this.cookieService.remove('currUsr')
     this.currentUser = null;
-    this.cookieService.put('currUsr',null)
     this.router.navigate(['./'])
   }
 }

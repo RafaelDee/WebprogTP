@@ -51,6 +51,9 @@ export function setDark(state:Boolean){
     htmlElement.setAttribute("data-bs-theme",null);
   }
 }
+export function toggleDark(){
+  setDark(!getIsDarkThemed())
+}
 export function getIsDarkThemed(){
 return document.documentElement.getAttribute("data-bs-theme") == "dark";
 }

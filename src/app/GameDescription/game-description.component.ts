@@ -29,13 +29,12 @@ export class GameDescriptionComponent {
   ngOnInit() {
     let id = this.route.snapshot.paramMap.get('id');
     this.currentGame = games.find((asd) => asd.id == id);
+    document.title = this.currentGame.title;
     const myCarousel = document.querySelector('#gamesCarousel');
     myCarousel.addEventListener('slide.bs.carousel', (event) => {
       if(this.playingIndex != null){
-        console.log('stopping');
         (event as unknown as Event).stopPropagation();
       }
-      console.log('asd');
       myCarousel.querySelectorAll('video').forEach((element) => {
         element.pause();
       });
@@ -46,9 +45,7 @@ export class GameDescriptionComponent {
   }
   pause() {
     this.playingIndex = null;
-    console.log('pause')
   }
   play() {
-    console.log('play')
   }
 }

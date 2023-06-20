@@ -18,7 +18,7 @@ export class LoginComponent {
     try{
       this.auth.login(this.email.nativeElement.value,this.password.nativeElement.value)
     }catch(e){
-      console.log((e as Error).name);
+      console.error((e as Error).name);
       this.loginStatus = e as Error;
     }
 
