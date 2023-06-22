@@ -1,143 +1,146 @@
-
-*{
+* {
   box-sizing: border-box;
 }
-.introduction{
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-  border: solid;
-  background-color: #702ef5;
-  margin: 10px;
+.introduction {
+  background-color: #702ef5dc;
+  padding: 10px;
   color: white;
+  .container {
+    display: grid;
+    color: white !important;
+    grid-template-columns: auto auto auto auto;
+  }
 }
-.texts, .popular, .recent{
-  border-left: solid 1px white;
-  border-right: solid 1px white;
+.list-group-item{
+  border-color: white;
+  font-weight: 500;
+  color: white;
+  background-color: transparent;
+}
+img{
+  object-fit: cover;
+  aspect-ratio: 16/10;
+}
+.texts,
+.popular,
+.recent {
   padding: 5px;
 }
-.popular-content{
+.popular-content {
   display: block;
   background-color: #7a48df;
-  border: solid 1px rgb(0, 0, 0);
   margin: 5px;
 }
-.recent-content{
+.recent-content {
   display: block;
   background-color: #7a48df;
-  border: solid 1px rgb(0, 0, 0);
   margin: 5px;
 }
-body{
+body {
   background-color: #212529;
   border: solid 1px;
 }
 
-.discussion{
+.discussion {
   display: grid;
   grid-template-columns: auto auto auto;
-  border:solid;
-  margin: 10px;
-
-
+  margin: 5px;
 }
-.item{
+.item {
   position: relative;
   border: rgb(88, 87, 87) solid 1px;
   padding: 5px;
-  margin: 10px;
-  overflow: auto;
+  margin: 5px;
   color: white;
-
 }
-.item-content{
+.item-content {
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
-.item:hover .item-content{
+.item:hover .item-content {
   color: yellow;
   transition: 1s;
 }
-.item:hover{
+.item:hover {
   border: white solid 1px;
   transition: 1s;
 }
 
-
-.item:hover > .item-title{
+.item:hover > .item-title {
   visibility: visible;
 
-
   opacity: 100%;
-
 }
-.item-title{
+.item-title {
   left: 0;
   color: white;
   z-index: 100;
   right: 0;
   font-size: 20px;
-  padding: 1rem;
+  padding: 0px 1rem ;
+  padding-top: 5px;
+  padding-bottom: 5px;
   visibility: visible;
   position: absolute;
-
   background-color: rgba(3, 3, 3, 0.733);
   top: 0px;
   opacity: 0%;
-  transition: opacity .5s;
+  transition: opacity 0.5s;
 
 }
-iframe{
+p{
+  margin-bottom: 0px !important;
+}
+iframe {
   padding: 10px;
 }
-.discussion1{
+.discussion1 {
   display: grid;
   grid-template-columns: auto auto;
-  border:solid;
-  margin: 10px;
-
-
+  margin: 5px;
 }
-img{
+img {
   float: left;
   padding: 10px;
 }
 
 @media only screen and (max-width: 1000px) {
-
-
-  .discussion,.discussion1{
+  .discussion,
+  .discussion1 {
     display: block;
   }
-  .discussion{
+  .discussion {
     border: none;
     margin: 10px;
   }
-  .discussion1{
+  .discussion1 {
     border: none;
     margin: 10px;
   }
-  .introduction{
+  .introduction {
     margin: 20px;
   }
-  .introduction{
+  .introduction {
     display: grid;
     grid-template-columns: auto;
   }
-  .texts, .popular, .recent{
+  .texts,
+  .popular,
+  .recent {
     border-top: solid 1px white;
     border-bottom: solid 1px white;
     padding: 5px;
 
-      border-left: 0px ;
-      border-right: 0px ;
-
+    border-left: 0px;
+    border-right: 0px;
   }
-  .item-content{
+  .item-content {
     display: block;
-
-
   }
-
+  .introduction .container {
+      display: grid;
+      color: white !important;
+      grid-template-columns: auto;
+  }
 }
