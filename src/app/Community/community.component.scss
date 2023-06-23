@@ -2,8 +2,9 @@
   box-sizing: border-box;
 }
 .introduction {
-  background-color: #702ef5dc;
   padding: 10px;
+  background-attachment: fixed;
+  background-image: url(https://store.akamai.steamstatic.com/public/shared/images/joinsteam/new_login_bg_strong_mask.jpg) ;
   color: white;
   .container {
     display: grid;
@@ -28,12 +29,10 @@ img{
 }
 .popular-content {
   display: block;
-  background-color: #7a48df;
   margin: 5px;
 }
 .recent-content {
   display: block;
-  background-color: #7a48df;
   margin: 5px;
 }
 body {
@@ -45,7 +44,9 @@ body {
   display: grid;
   grid-template-columns: auto auto auto;
   margin: 5px;
+
 }
+
 .item {
   position: relative;
   border: rgb(88, 87, 87) solid 1px;
@@ -119,11 +120,11 @@ img {
     margin: 10px;
   }
   .introduction {
-    margin: 20px;
-  }
-  .introduction {
     display: grid;
     grid-template-columns: auto;
+    .list-group-item:hover{
+      background-color: #35353554;
+    }
   }
   .texts,
   .popular,

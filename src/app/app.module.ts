@@ -19,6 +19,7 @@ import { LoginComponent } from './accountManager/login/login.component';
 import { SignupComponent } from './accountManager/signup/signup.component';
 import { CookieModule } from 'ngx-cookie';
 import { MemberComponent } from './about/member/member.component';
+import { AuthModule } from '@auth0/auth0-angular';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,7 @@ import { MemberComponent } from './about/member/member.component';
     AccountManagerComponent,
     GameCodesComponent,MemberComponent,
   CommunityComponent,NavBarComponent, NotFoundComponent, GameItemComponent, SafeHTMLPipe, LoginComponent, SignupComponent],
-  imports: [BrowserModule, AppRoutingModule, NgbModule,CookieModule.withOptions()],
+  imports: [BrowserModule, AppRoutingModule, NgbModule,CookieModule.withOptions(),AuthModule.forRoot({domain:'dev-bss28apih3qbot1i.us.auth0.com',clientId:'C9ribBuyTV70c2PQf7ttbf6gQCjDrVZO'})],
   providers: [],
   bootstrap: [AppComponent],
 })

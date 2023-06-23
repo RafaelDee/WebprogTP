@@ -4,7 +4,7 @@ import { faker } from '@faker-js/faker';
 @Component({
   selector: 'app-community',
   templateUrl: './community.component.html',
-  styleUrls: ['./community.component.css']
+  styleUrls: ['./community.component.scss']
 })
 export class CommunityComponent {
   createTopics(): Topic {
