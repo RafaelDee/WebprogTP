@@ -11,6 +11,9 @@
     color: white !important;
     grid-template-columns: auto auto auto auto;
   }
+  .list-group-item:hover{
+      background-color: #72727254;
+  }
 }
 .list-group-item{
   border-color: white;
@@ -105,7 +108,6 @@ img {
   float: left;
   padding: 10px;
 }
-
 @media only screen and (max-width: 1000px) {
   .discussion,
   .discussion1 {
@@ -122,9 +124,7 @@ img {
   .introduction {
     display: grid;
     grid-template-columns: auto;
-    .list-group-item:hover{
-      background-color: #35353554;
-    }
+
   }
   .texts,
   .popular,

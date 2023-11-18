@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
 import { Observable, filter } from 'rxjs';
 import { appname} from 'src/main';
 import { AuthService, User } from '../auth.service';

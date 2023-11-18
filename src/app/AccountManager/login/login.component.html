@@ -1,5 +1,5 @@
 
-<div class="w-100 d-flex align-items-center justify-content-center" style="height: var(--fullscreenH);" >
+<div class="w-100 d-flex align-items-center justify-content-center h-100" >
 
 <div class="container card">
   <h2 class="form-title">Login</h2>
@@ -29,7 +29,7 @@
       <input #password type="password" id="password" placeholder="Enter your password" required>
     </div>
     <button type="submit" class="btn mb-3">Login</button>
-    <button type="submit" class="btn mb-3" (click)="auth0Login()">Login with Auth0</button>
+    <button class="btn mb-3" (click)="auth0Login();$event.preventDefault()">Login with Auth0</button>
     <p class="form-link">Don't have an account? <a routerLink="../signup">Register</a></p>
   </form>
 </div>

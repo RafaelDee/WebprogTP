@@ -36,26 +36,25 @@ export class AuthService implements OnInit {
     private cookieService: CookieService,
     private auth0: Au0
   ) {
-
     this.users = this.cookieService.get('users')
       ? (JSON.parse(this.cookieService.get('users')) as User[])
       : this.users;
-    let cuid = this.cookieService.get('currUsr');
-    if (cuid == null || cuid == undefined) return;
-    firstValueFrom(auth0.user$).then(user=>{
-      if(user != null){
-        this.loginAuth0(user.email,user.name);
-        return;
-      }
-      this.currentUser = this.users?.find(
-        (user) => user.uid == this.cookieService.get('currUsr')
-      );
-    }).catch(asd=>{
-      this.currentUser = this.users?.find(
-        (user) => user.uid == this.cookieService.get('currUsr')
-      );
-    })
 
+    firstValueFrom(auth0.user$)
+      .then((user) => {
+        if (user != null) {
+          console.log(user);
+          this.loginAuth0(user);
+          return;
+        }
+      })
+      .catch((asd) => {
+        let cuid = this.cookieService.get('currUsr');
+        if (cuid == null || cuid == undefined) return;
+        this.currentUser = this.users?.find(
+          (user) => user.uid == this.cookieService.get('currUsr')
+        );
+      });
   }
   ngOnInit() {}
   addToWishlist(id: string, add: boolean) {
@@ -91,21 +90,23 @@ export class AuthService implements OnInit {
     this.cookieService.put('currUsr', user.uid);
     this.router.navigate(['./']);
   }
-  loginAuth0(email: string, username: string) {
-    let user = [...this.users.values()].find((user) => user.email == email);
-
-    if (user != null && user[1].loginProvider != LoginProvider.Auth0)
+  loginAuth0(usr:import("@auth0/auth0-spa-js").User ) {
+    let user = [...this.users.values()].find((user) => user.email == usr.email);
+    console.log(user);
+    console.log(usr.email);
+    if (user != null && user?.loginProvider != LoginProvider.Auth0)
       throw Error('Please Login with Auth0');
     if (user == null) {
       let uid = uuidv4();
-      this.users.push(uid, {
+      user = {
         loginProvider: LoginProvider.Auth0,
         about: faker.person.bio(),
-        email: email,
-        username: username,
+        email: usr.email,
+        username: usr.name,
         uid: uid,
-        photoURL: faker.image.avatar(),
-      });
+        photoURL: usr.picture??faker.image.avatar(),
+      };
+      this.users.push(uid, user);
     }
     this.currentUser = user;
     return;
@@ -135,7 +136,7 @@ export class AuthService implements OnInit {
     this.cookieService.put('users', JSON.stringify(this.users));
   }
   logout() {
-    if(this.currentUser.loginProvider == LoginProvider.Auth0){
+    if (this.currentUser.loginProvider == LoginProvider.Auth0) {
       this.auth0.logout();
     }
     this.cookieService.remove('currUsr');

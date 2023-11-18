@@ -11,8 +11,8 @@ import { CommunityComponent } from './community/community.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LoginComponent } from './accountManager/login/login.component';
 import { SignupComponent } from './accountManager/signup/signup.component';
-import { hasAuth } from './auth.guard';
 import { appname } from 'src/main';
+import { hasAuth } from './auth.guard';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent},
@@ -32,6 +32,7 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' }),
   ],
+  providers:[hasAuth],
   exports: [RouterModule],
 })
 export class AppRoutingModule {

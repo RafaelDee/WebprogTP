@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/auth.service';
 import { AuthService as Au0 } from '@auth0/auth0-angular';
 import { firstValueFrom } from 'rxjs';
@@ -14,7 +14,7 @@ export class LoginComponent {
   @ViewChild('password') password:ElementRef;
   loginRequired = this.route.snapshot.queryParamMap.get('loginRequired');
   loginStatus?:Error;
-  constructor(private route:ActivatedRoute,private auth:AuthService,private auth0:Au0){}
+  constructor(private route:ActivatedRoute,private auth:AuthService,private auth0:Au0,private router:Router){}
   login(){
     this.loginStatus = null;
     try{
@@ -28,7 +28,8 @@ export class LoginComponent {
     this.auth0.loginWithPopup().subscribe(async result=>{
       let asd = await firstValueFrom(this.auth0.user$);
       try{
-        this.auth.loginAuth0(asd.email,asd.name);
+        this.auth.loginAuth0(asd);
+        this.router.navigate([''])
       }catch(e){
         console.error((e as Error).name);
         this.loginStatus = e as Error;
