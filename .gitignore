@@ -30,6 +30,7 @@ yarn-error.log
 
 # Miscellaneous
 /.angular/cache
+.vscode/settings.json
 .sass-cache/
 /connect.lock
 /coverage
